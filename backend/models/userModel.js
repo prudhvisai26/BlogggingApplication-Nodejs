@@ -3,7 +3,6 @@ const { createDB } = require("../config/db");
 const Post = require("./postModel");
 const Comment = require("./commentModel");
 const Reply = require("./replyModel");
-const Like = require("./likeModel");
 const Connection = require("./connectionModel");
 
 const User = createDB.define(
@@ -31,22 +30,21 @@ const User = createDB.define(
 );
 
 // Associations
-User.hasMany(Post, { foreignKey: "userId" });
-User.hasMany(Comment, { foreignKey: "userId" });
-User.hasMany(Reply, { foreignKey: "userId" });
-User.hasMany(Like, { foreignKey: "userId" });
+// User.hasMany(Post, { foreignKey: "userId" });
+// User.hasMany(Comment, { foreignKey: "userId" });
+// User.hasMany(Reply, { foreignKey: "userId" });
 
-User.belongsToMany(User, {
-  as: "Followers",
-  through: Connection,
-  foreignKey: "followingId",
-  otherKey: "followerId",
-});
-User.belongsToMany(User, {
-  as: "Following",
-  through: Connection,
-  foreignKey: "followerId",
-  otherKey: "followingId",
-});
+// User.belongsToMany(User, {
+//   as: "Followers",
+//   through: Connection,
+//   foreignKey: "followingId",
+//   otherKey: "followerId",
+// });
+// User.belongsToMany(User, {
+//   as: "Following",
+//   through: Connection,
+//   foreignKey: "followerId",
+//   otherKey: "followingId",
+// });
 
 module.exports = User;

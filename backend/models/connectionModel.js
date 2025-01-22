@@ -13,7 +13,7 @@ const Connection = createDB.define(
       allowNull: false,
     },
   },
-  { timeStamps: true }
+  { timestamps: true }
 );
 
 module.exports = Connection;

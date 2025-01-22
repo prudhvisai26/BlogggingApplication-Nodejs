@@ -26,10 +26,4 @@ const Like = createDB.define(
   }
 );
 
-// Associations
-Like.belongsTo(User, { foreignKey: "userId" });
-Like.belongsTo(Post, { foreignKey: "postId" });
-Like.belongsTo(Comment, { foreignKey: "commentId" });
-Like.belongsTo(Reply, { foreignKey: "replyId" });
-
 module.exports = Like;

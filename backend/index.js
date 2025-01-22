@@ -2,10 +2,19 @@ const express = require("express");
 const { connectToDB } = require("./config/db");
 const userRoutes = require("./routes/userRoutes");
 const postRoutes = require("./routes/postRoutes");
+const setupAssociations = require("./models/association");
 
 const PORT = 8001;
 
 const app = express();
+
+require("./models/userModel");
+require("./models/postModel");
+require("./models/commentModel");
+require("./models/replyModel");
+require("./models/connectionModel");
+require("./models/likeModel");
+setupAssociations();
 connectToDB();
 
 //MiddleWares
