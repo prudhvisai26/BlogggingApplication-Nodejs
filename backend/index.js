@@ -1,6 +1,7 @@
 const express = require("express");
 const { connectToDB } = require("./config/db");
 const userRoutes = require("./routes/userRoutes");
+const postRoutes = require("./routes/postRoutes");
 
 const PORT = 8001;
 
@@ -14,6 +15,7 @@ express.static("uploads");
 
 //Routes
 app.use("/api/v1/users", userRoutes);
+app.use("/api/v1/posts", postRoutes);
 
 app.listen(PORT, () => {
   console.log("Server Started Successfully at:", PORT);
